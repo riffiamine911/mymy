@@ -136,7 +136,7 @@ export default function Home() {
                 <div className="relative aspect-[4/5] rounded-2xl bg-secondary/20 border border-border overflow-hidden">
                   {/* Add your image here */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                  <img src="/projects/messu.png" alt="" />
+                  <Image src="/projects/messu.png" alt="" fill />
                 </div>
               </div>
 
@@ -243,10 +243,10 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white/90 to-white/60 bg-clip-text text-transparent">
-                  Let's work together
+                  Let&apos;s work together
                 </h2>
                 <p className="text-white/60 max-w-md text-lg">
-                  Have a project in mind? Let's create something amazing together.
+                  Have a project in mind? Let&apos;s create something amazing together.
                 </p>
               </div>
               
