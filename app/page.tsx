@@ -112,7 +112,7 @@ export default function Home() {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="aspect-[4/3] rounded-lg overflow-hidden relative group">
                         <Image
-                          src="/projects/project-1.jpg" // Add your image
+                          src="/projects/conference.jpg" // Add your image
                           alt="Featured project 1"
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -186,6 +186,7 @@ export default function Home() {
               <div className="relative aspect-[4/5] rounded-2xl bg-secondary/20 border border-border overflow-hidden">
                 {/* Add your image here */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                <img src="/projects/messi.jpg" alt="" />
               </div>
             </div>
 
