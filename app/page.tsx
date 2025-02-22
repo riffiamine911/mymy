@@ -136,7 +136,7 @@ export default function Home() {
                 <div className="relative aspect-[4/5] rounded-2xl bg-secondary/20 border border-border overflow-hidden">
                   {/* Add your image here */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                  <Image src="/projects/messu.png" alt="" fill />
+                  <Image src="/projects/messu.png" alt="" />
                 </div>
               </div>
 
