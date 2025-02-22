@@ -56,7 +56,7 @@ export default function Home() {
 
             <AnimateIn delay={800}>
               <div className="flex gap-4 justify-center">
-                <a 
+                <Link 
                   href="#work"
                   className="group relative inline-flex items-center justify-center"
                 >
@@ -67,13 +67,13 @@ export default function Home() {
                       <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href="#contact"
                   className="px-6 py-3 rounded-lg border border-border hover:bg-secondary/20 text-base font-medium transition-colors"
                 >
                   Get in Touch
-                </a>
+                </Link>
               </div>
             </AnimateIn>
 
@@ -234,12 +234,12 @@ export default function Home() {
             <p className="text-muted-foreground mb-8">
               I&apos;m always open to new opportunities and collaborations.
             </p>
-            <a 
+            <Link 
               href="mailto:your.email@example.com"
               className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-6 py-3 text-lg font-medium hover:bg-primary/90"
             >
               Send me an email
-            </a>
+            </Link>
           </div>
         </section>
       </ScrollAnimation>
