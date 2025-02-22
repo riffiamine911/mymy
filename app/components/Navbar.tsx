@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface NavLink {
@@ -97,14 +98,14 @@ export default function Navbar() {
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors"
                 onClick={handleLinkClick}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

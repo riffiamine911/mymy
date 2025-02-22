@@ -136,7 +136,7 @@ export default function Home() {
               
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  With over 8 years of experience in design, I've dedicated my career to creating meaningful visual experiences that connect brands with their audiences. My approach combines strategic thinking with creative execution, ensuring every project delivers both aesthetic excellence and measurable results.
+                  With over 8 years of experience in design, I&apos;ve dedicated my career to creating meaningful visual experiences that connect brands with their audiences. My approach combines strategic thinking with creative execution, ensuring every project delivers both aesthetic excellence and measurable results.
                 </p>
                 <p>
                   I specialize in brand identity systems, user interface design, and creative direction, working closely with clients to transform their visions into compelling visual narratives.
@@ -228,7 +228,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
           <p className="text-muted-foreground mb-8">
-            I'm always open to new opportunities and collaborations.
+            I&apos;m always open to new opportunities and collaborations.
           </p>
           <a 
             href="mailto:your.email@example.com"
