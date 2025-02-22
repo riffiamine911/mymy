@@ -103,31 +103,42 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div 
-          className={`fixed inset-0 bg-background/98 backdrop-blur-lg transition-transform duration-300 md:hidden ${
+          className={`fixed inset-0 bg-background z-40 transition-transform duration-300 md:hidden ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors"
-                onClick={handleLinkClick}
+          {/* Add an overlay background */}
+          <div className="absolute inset-0 bg-white dark:bg-black opacity-98" />
+          
+          {/* Menu content */}
+          <div className="relative h-full flex flex-col">
+            {/* Links container */}
+            <div className="flex-1 flex flex-col items-center justify-center space-y-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors"
+                  onClick={handleLinkClick}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Language button at bottom */}
+            <div className="pb-12 flex justify-center">
+              <button
+                onClick={() => {
+                  setLanguage(language === "en" ? "de" : "en");
+                  handleLinkClick();
+                }}
+                className="text-base font-medium text-foreground/60 hover:text-primary transition-colors inline-flex items-center gap-2"
               >
-                {link.label}
-              </Link>
-            ))}
-            <button
-              onClick={() => {
-                setLanguage(language === "en" ? "de" : "en");
-                handleLinkClick();
-              }}
-              className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors inline-flex items-center gap-2"
-            >
-              <Globe className="w-6 h-6" />
-              {language === "en" ? "Deutsch" : "English"}
-            </button>
+                <Globe className="w-4 h-4" />
+                {language === "en" ? "Deutsch" : "English"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
