@@ -1,14 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/app/data/projects";
 import { AnimateIn } from "@/app/components/AnimateIn";
 import { ScrollAnimation } from "@/app/components/ScrollAnimation";
+import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[100svh] relative flex items-center justify-center overflow-hidden pt-16">
+      <section className="min-h-[100svh] relative flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
         {/* Creative Background Pattern */}
         <div className="absolute inset-0 -z-10">
           {/* Main gradient layers */}
@@ -24,16 +30,27 @@ export default function Home() {
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(45deg,#6a8ec2/0.03_1px,transparent_1px)] bg-[size:32px_32px]" />
         </div>
-
-        <div className="max-w-5xl mx-auto px-4 py-8 sm:py-24 md:py-32 relative">
+        <div className="max-w-5xl mx-auto px-4 py-16 sm:py-24 md:py-32 relative">
          
 
           {/* Centered Content */}
-          <div className="text-center space-y-6 sm:space-y-10 mt-4 sm:mt-0">
+          <div className="text-center space-y-6 sm:space-y-10">
+            <AnimateIn delay={100}>
+              <div className="flex justify-end mb-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/30 backdrop-blur-sm border border-primary/20 text-primary text-sm font-medium">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  Available for Projects
+                </div>
+              </div>
+            </AnimateIn>
+
             <AnimateIn delay={200}>
               <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm">
                 <div className="h-[1px] w-8 sm:w-16 bg-primary/50"></div>
-                <p className="text-primary font-medium tracking-wider uppercase">Creative Designer</p>
+                <p className="text-primary font-medium tracking-wider uppercase">{t.hero.role}</p>
                 <div className="h-[1px] w-8 sm:w-16 bg-primary/50"></div>
               </div>
             </AnimateIn>
@@ -42,15 +59,14 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight">
                 Amine Ibnlfassi
                 <span className="block text-muted-foreground/60 mt-2 sm:mt-3 text-lg sm:text-xl md:text-2xl font-normal">
-                  Graphic Designer
+                  {t.hero.subtitle}
                 </span>
               </h1>
             </AnimateIn>
 
             <AnimateIn delay={600}>
               <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-                Creating bold, memorable designs that tell stories and build brands. 
-                Specializing in brand identity, digital design, and creative direction.
+                {t.hero.description}
               </p>
             </AnimateIn>
 
@@ -62,7 +78,7 @@ export default function Home() {
                 >
                   <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all duration-300"></div>
                   <span className="relative bg-primary w-full sm:w-auto px-6 py-3 rounded-lg text-primary-foreground font-medium inline-flex items-center justify-center gap-2 group-hover:translate-x-1 transition-transform">
-                    View Portfolio
+                    {t.hero.cta.portfolio}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover:translate-x-1 transition-transform">
                       <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -72,20 +88,20 @@ export default function Home() {
                   href="#contact"
                   className="w-full sm:w-auto px-6 py-3 rounded-lg border border-border hover:bg-secondary/20 text-base font-medium transition-colors text-center"
                 >
-                  Get in Touch
+                  {t.hero.cta.contact}
                 </Link>
               </div>
             </AnimateIn>
 
             <AnimateIn delay={1000}>
               <div className="max-w-lg mx-auto px-4">
-                <p className="text-xs sm:text-sm text-muted-foreground/60 mb-3 sm:mb-4 font-medium">Design Expertise</p>
-                <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
-                  {['Brand Identity', 'UI/UX Design', 'Typography'].map((skill) => (
+                <p className="text-xs sm:text-sm text-muted-foreground/60 mb-3 sm:mb-4 font-medium">{t.hero.expertise}</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                  {t.hero.skills.map((skill) => (
                     <div key={skill} 
-                      className="px-2 sm:px-4 py-2 rounded-lg bg-secondary/10 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-colors"
+                      className="px-3 sm:px-4 py-2 rounded-lg bg-secondary/10 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-colors"
                     >
-                      <p className="text-[10px] sm:text-sm font-medium text-center whitespace-nowrap">{skill}</p>
+                      <p className="text-xs sm:text-sm font-medium text-center">{skill}</p>
                     </div>
                   ))}
                 </div>
@@ -110,7 +126,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-4">
             <div className="flex items-center gap-2 text-sm mb-8">
               <div className="h-[1px] w-12 bg-primary/50"></div>
-              <p className="text-primary font-medium tracking-wider uppercase">About Me</p>
+              <p className="text-primary font-medium tracking-wider uppercase">{t.about.title}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -127,27 +143,24 @@ export default function Home() {
               {/* Right Column - Content */}
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                  Crafting Digital Experiences with Purpose
+                  {t.about.heading}
                 </h2>
                 
                 <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    With over 3 years of experience in design, I&apos;ve dedicated my career to creating meaningful visual experiences that connect brands with their audiences. My approach combines strategic thinking with creative execution, ensuring every project delivers both aesthetic excellence and measurable results.
-                  </p>
-                  <p>
-                    I specialize in brand identity systems, user interface design, and creative direction, working closely with clients to transform their visions into compelling visual narratives.
-                  </p>
+                  {t.about.description.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
                 </div>
 
                 {/* Stats/Highlights */}
                 <div className="grid grid-cols-2 gap-8 pt-6">
                   <div>
                     <div className="text-3xl font-bold text-primary">3+</div>
-                    <div className="text-sm text-muted-foreground mt-1">Years of Experience</div>
+                    <div className="text-sm text-muted-foreground mt-1">{t.about.stats.years}</div>
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-primary">46+</div>
-                    <div className="text-sm text-muted-foreground mt-1">Projects Completed</div>
+                    <div className="text-sm text-muted-foreground mt-1">{t.about.stats.projects}</div>
                   </div>
                 </div>
 
@@ -221,6 +234,87 @@ export default function Home() {
           </div>
         </section>
       </ScrollAnimation>
+
+      {/* Add the Footer here, at the end of the component */}
+      <footer className="bg-black text-white">
+        <div className="max-w-5xl mx-auto px-4 py-24">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-24">
+            {/* Left Column */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white/90 to-white/60 bg-clip-text text-transparent">
+                  Let's work together
+                </h2>
+                <p className="text-white/60 max-w-md text-lg">
+                  Have a project in mind? Let's create something amazing together.
+                </p>
+              </div>
+              
+              <Link 
+                href="mailto:your.email@example.com"
+                className="inline-flex items-center gap-2 text-xl font-medium group text-white/90 hover:text-white"
+              >
+                riffiamine911@gmail.com
+                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col justify-between md:items-end">
+              <div className="space-y-8">
+                <p className="text-white/60 text-sm font-medium uppercase tracking-wider">
+                  Connect With Me
+                </p>
+                <div className="flex flex-col gap-6">
+                  {[
+                    { 
+                      label: 'Behance', 
+                      url: 'https://behance.net/amineibnlfassi',
+                      description: 'View my design portfolio'
+                    },
+                    { 
+                      label: 'Threads', 
+                      url: 'https://www.threads.net/@aminee_belfassi?igshid=NTc4MTIwNjQ2YQ==',
+                      description: 'Follow my design journey'
+                    },
+                    { 
+                      label: 'Pinterest', 
+                      url: 'https://pin.it/t5KNWgqEs',
+                      description: 'Discover my inspirations'
+                    },
+                  ].map((social) => (
+                    <Link
+                      key={social.label}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <div className="flex items-center gap-4 group-hover:bg-white/5 p-3 rounded-xl transition-all">
+                        <div className="flex-1">
+                          <p className="text-lg font-medium text-white/90 group-hover:text-white">
+                            {social.label}
+                          </p>
+                          <p className="text-sm text-white/40 group-hover:text-white/60">
+                            {social.description}
+                          </p>
+                        </div>
+                        <ArrowUpRight className="w-5 h-5 text-white/60 transition-all group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-16 pt-8 border-t border-white/10">
+                <p className="text-white/40 text-sm">
+                  © {new Date().getFullYear()} Amine Ibnlfassi. All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

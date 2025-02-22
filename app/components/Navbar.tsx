@@ -2,21 +2,18 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Globe } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 interface NavLink {
   href: string;
   label: string;
 }
 
-const navLinks: NavLink[] = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   // Handle scroll effect
   useEffect(() => {
@@ -38,6 +35,12 @@ export default function Navbar() {
     setIsOpen(false);
     document.body.style.overflow = "unset";
   };
+
+  const navLinks: NavLink[] = [
+    { href: "#about", label: t.nav.about },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   return (
     <nav 
@@ -68,6 +71,14 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full" />
             </Link>
           ))}
+          
+          <button
+            onClick={() => setLanguage(language === "en" ? "de" : "en")}
+            className="inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+            {language === "en" ? "DE" : "EN"}
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -107,6 +118,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <button
+              onClick={() => {
+                setLanguage(language === "en" ? "de" : "en");
+                handleLinkClick();
+              }}
+              className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors inline-flex items-center gap-2"
+            >
+              <Globe className="w-6 h-6" />
+              {language === "en" ? "Deutsch" : "English"}
+            </button>
           </div>
         </div>
       </div>
