@@ -18,9 +18,9 @@ export const projects: Project[] = [
     description: "A comprehensive brand identity system for a tech startup",
     image: "/projects/iMac Mockup Light.png",
     categories: ["Branding", "Visual Identity", "Typography"],
-    clientName: "TechFlow Inc.",
+    clientName: "Ministère de Communication",
     year: "2024",
-    services: ["Logo Design", "Brand Guidelines", "Visual Identity", "Collateral Design"],
+    services: ["Logo Design", "Banners Design", "Responsive Design"],
     content: `
 # TechFlow Brand Identity
 

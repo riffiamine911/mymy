@@ -2,7 +2,9 @@ export const translations = {
   en: {
     nav: {
       about: "About",
+      expertise: "Expertise",
       projects: "Projects",
+      faq: "FAQ",
       contact: "Contact"
     },
     hero: {
@@ -27,12 +29,35 @@ export const translations = {
         years: "Years of Experience",
         projects: "Projects Completed"
       }
+    },
+    expertise: {
+      title: "Expertise",
+      heading: "Specialized Design Services",
+      services: [
+        {
+          title: "Website Design",
+          description: "Creating intuitive and engaging web experiences that combine aesthetic excellence with user-centered functionality.",
+          icon: "🌐"
+        },
+        {
+          title: "Mobile Design",
+          description: "Crafting seamless mobile applications that deliver exceptional user experiences across all devices.",
+          icon: "📱"
+        },
+        {
+          title: "Brand Identity",
+          description: "Developing distinctive brand identities that tell compelling stories and create lasting connections.",
+          icon: "✨"
+        }
+      ]
     }
   },
   de: {
     nav: {
       about: "Über mich",
+      expertise: "Expertise",
       projects: "Projekte",
+      faq: "FAQ",
       contact: "Kontakt"
     },
     hero: {
@@ -57,6 +82,27 @@ export const translations = {
         years: "Jahre Erfahrung",
         projects: "Abgeschlossene Projekte"
       }
+    },
+    expertise: {
+      title: "Expertise",
+      heading: "Spezialisierte Design-Services",
+      services: [
+        {
+          title: "Website Design",
+          description: "Erschaffe intuitive und fesselnde Web-Erlebnisse, die ästhetische Exzellenz mit nutzerzentrierter Funktionalität verbinden.",
+          icon: "🌐"
+        },
+        {
+          title: "Mobile Design",
+          description: "Entwickle nahtlose mobile Anwendungen, die außergewöhnliche Nutzererlebnisse auf allen Geräten bieten.",
+          icon: "📱"
+        },
+        {
+          title: "Brand Identity",
+          description: "Entwickle unverwechselbare Markenidentitäten, die überzeugende Geschichten erzählen und dauerhafte Verbindungen schaffen.",
+          icon: "✨"
+        }
+      ]
     }
   }
 }; 

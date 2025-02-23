@@ -38,8 +38,10 @@ export default function Navbar() {
 
   const navLinks: NavLink[] = [
     { href: "#about", label: t.nav.about },
+    { href: "#expertise", label: t.nav.expertise },
     { href: "#projects", label: t.nav.projects },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#faq", label: t.nav.faq },
+    { href: "#footer", label: t.nav.contact },
   ];
 
   return (
@@ -65,7 +67,11 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group"
+              className={`text-sm font-medium transition-colors relative group ${
+                link.label === t.nav.faq 
+                  ? "text-black dark:text-white hover:text-primary" 
+                  : "text-foreground/80 hover:text-primary"
+              }`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full" />
@@ -118,7 +124,11 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors"
+                  className={`text-2xl font-medium transition-colors ${
+                    link.label === t.nav.faq 
+                      ? "text-black dark:text-white hover:text-primary" 
+                      : "text-foreground/80 hover:text-primary"
+                  }`}
                   onClick={handleLinkClick}
                 >
                   {link.label}

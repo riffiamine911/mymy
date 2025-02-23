@@ -7,6 +7,8 @@ import { AnimateIn } from "@/app/components/AnimateIn";
 import { ScrollAnimation } from "@/app/components/ScrollAnimation";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/app/contexts/LanguageContext";
+import { AnimatedText } from "@/app/components/AnimatedText";
+import { FAQSection } from "@/app/components/FAQSection";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -172,7 +174,7 @@ export default function Home() {
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-2 pt-4">
-                  {['Figma', 'Adobe CC', 'Webflow', 'After Effects', 'Principle'].map((skill) => (
+                  {['Figma', 'Photoshop', 'Lightroom CC', 'VS Code', 'Cursor'].map((skill) => (
                     <span 
                       key={skill}
                       className="px-3 py-1 rounded-full text-sm bg-secondary/30 border border-border/50"
@@ -182,6 +184,48 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+      </ScrollAnimation>
+
+      {/* Expertise Section */}
+      <ScrollAnimation>
+        <section id="expertise" className="py-24 relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_20%_20%,var(--chart-1)/0.15,transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_80%_60%,var(--chart-4)/0.15,transparent)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(60deg,var(--chart-2)/0.05_1px,transparent_1px)] bg-[size:16px_16px]" />
+          </div>
+
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="flex items-center gap-2 text-sm mb-8">
+              <div className="h-[1px] w-12 bg-primary/50"></div>
+              <p className="text-primary font-medium tracking-wider uppercase">{t.expertise.title}</p>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-16">
+              {t.expertise.heading}
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {t.expertise.services.map((service, index) => (
+                <div 
+                  key={service.title}
+                  className="group relative bg-secondary/10 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/20 transition-colors"
+                >
+                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {service.description}
+                  </p>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -241,15 +285,18 @@ export default function Home() {
         </section>
       </ScrollAnimation>
 
-      {/* Add the Footer here, at the end of the component */}
-      <footer className="bg-black text-white">
+      {/* FAQ Section */}
+      <FAQSection />
+
+      {/* Footer */}
+      <footer id="footer" className="bg-black text-white">
         <div className="max-w-5xl mx-auto px-4 py-24">
           <div className="grid md:grid-cols-2 gap-12 md:gap-24">
             {/* Left Column */}
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white/90 to-white/60 bg-clip-text text-transparent">
-                  Let&apos;s work together
+                  <AnimatedText />
                 </h2>
                 <p className="text-white/60 max-w-md text-lg">
                   Have a project in mind? Let&apos;s create something amazing together.
