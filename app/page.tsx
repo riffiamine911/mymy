@@ -290,35 +290,35 @@ export default function Home() {
 
       {/* Footer */}
       <footer id="footer" className="bg-black text-white">
-        <div className="max-w-5xl mx-auto px-4 py-24">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-24">
             {/* Left Column */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white/90 to-white/60 bg-clip-text text-transparent">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="space-y-3 sm:space-y-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white/90 to-white/60 bg-clip-text text-transparent">
                   <AnimatedText />
                 </h2>
-                <p className="text-white/60 max-w-md text-lg">
+                <p className="text-white/60 max-w-md text-base sm:text-lg">
                   Have a project in mind? Let&apos;s create something amazing together.
                 </p>
               </div>
               
               <Link 
-                href="mailto:your.email@example.com"
-                className="inline-flex items-center gap-2 text-xl font-medium group text-white/90 hover:text-white"
+                href="mailto:riffiamine911@gmail.com"
+                className="inline-flex items-center gap-2 text-lg sm:text-xl font-medium group text-white/90 hover:text-white"
               >
                 riffiamine911@gmail.com
-                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
 
             {/* Right Column */}
             <div className="flex flex-col justify-between md:items-end">
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <p className="text-white/60 text-sm font-medium uppercase tracking-wider">
                   Connect With Me
                 </p>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:gap-6">
                   {[
                     { 
                       label: 'Behance', 
@@ -343,24 +343,24 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group"
                     >
-                      <div className="flex items-center gap-4 group-hover:bg-white/5 p-3 rounded-xl transition-all">
+                      <div className="flex items-center gap-3 sm:gap-4 group-hover:bg-white/5 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all">
                         <div className="flex-1">
-                          <p className="text-lg font-medium text-white/90 group-hover:text-white">
+                          <p className="text-base sm:text-lg font-medium text-white/90 group-hover:text-white">
                             {social.label}
                           </p>
-                          <p className="text-sm text-white/40 group-hover:text-white/60">
+                          <p className="text-xs sm:text-sm text-white/40 group-hover:text-white/60">
                             {social.description}
                           </p>
                         </div>
-                        <ArrowUpRight className="w-5 h-5 text-white/60 transition-all group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/60 transition-all group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1" />
                       </div>
                     </Link>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-16 pt-8 border-t border-white/10">
-                <p className="text-white/40 text-sm">
+              <div className="mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10">
+                <p className="text-white/40 text-xs sm:text-sm">
                   © {new Date().getFullYear()} Amine Ibnlfassi. All rights reserved.
                 </p>
               </div>

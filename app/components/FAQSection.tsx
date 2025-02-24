@@ -74,7 +74,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
@@ -83,36 +83,36 @@ export function FAQSection() {
         <div className="absolute inset-0 bg-[linear-gradient(60deg,var(--chart-2)/0.05_1px,transparent_1px)] bg-[size:16px_16px]" />
       </div>
 
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3 sm:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             Find answers to common questions about my design process, timeline, and how we can work together.
           </p>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid gap-3 sm:gap-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-border/50 rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm"
+              className="border border-border/50 rounded-lg sm:rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm"
             >
               <button
-                className="w-full px-6 py-4 text-left flex items-center justify-between"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between text-sm sm:text-base"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="font-medium">{faq.question}</span>
+                <span className="font-medium pr-4">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
               </button>
               <div
-                className={`px-6 overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "pb-6 max-h-96" : "max-h-0"
+                className={`px-4 sm:px-6 overflow-hidden transition-all duration-300 text-sm sm:text-base ${
+                  openIndex === index ? "pb-4 sm:pb-6 max-h-[500px]" : "max-h-0"
                 }`}
               >
                 <div className="text-muted-foreground">{faq.answer}</div>
