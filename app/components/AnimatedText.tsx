@@ -29,7 +29,7 @@ export function AnimatedText() {
 
   return (
     <div className="inline-flex items-center gap-2">
-      <span className="text-white font-bold">Let's</span>
+      <span className="text-white font-bold">Let&apos;s</span>
       <div className="relative">
         <span 
           className={`inline-block transition-all duration-1000 text-white font-bold ${

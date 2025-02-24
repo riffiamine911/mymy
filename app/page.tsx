@@ -210,23 +210,7 @@ export default function Home() {
               {t.expertise.heading}
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {t.expertise.services.map((service, index) => (
-                <div 
-                  key={service.title}
-                  className="group relative bg-secondary/10 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/20 transition-colors"
-                >
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {service.description}
-                  </p>
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
-            </div>
+            
           </div>
         </section>
       </ScrollAnimation>
