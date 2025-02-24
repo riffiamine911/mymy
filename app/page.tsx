@@ -189,28 +189,48 @@ export default function Home() {
         </section>
       </ScrollAnimation>
 
-      {/* Expertise Section */}
+      {/* Services Section */}
       <ScrollAnimation>
-        <section id="expertise" className="py-24 relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_20%_20%,var(--chart-1)/0.15,transparent)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_80%_60%,var(--chart-4)/0.15,transparent)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(60deg,var(--chart-2)/0.05_1px,transparent_1px)] bg-[size:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_80%_20%,var(--chart-2)/0.15,transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_20%_60%,var(--chart-3)/0.15,transparent)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(60deg,var(--chart-1)/0.05_1px,transparent_1px)] bg-[size:16px_16px]" />
           </div>
 
           <div className="max-w-5xl mx-auto px-4">
             <div className="flex items-center gap-2 text-sm mb-8">
               <div className="h-[1px] w-12 bg-primary/50"></div>
-              <p className="text-primary font-medium tracking-wider uppercase">{t.expertise.title}</p>
+              <p className="text-primary font-medium tracking-wider uppercase">{t.services.title}</p>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-16">
-              {t.expertise.heading}
-            </h2>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t.services.heading}
+              </h2>
+              <p className="text-muted-foreground">
+                {t.services.description}
+              </p>
+            </div>
 
-            
+            <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
+              {t.services.items.map((service, index) => (
+                <div
+                  key={index}
+                  className="group relative p-6 sm:p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-colors"
+                >
+                  <div className="mb-4 text-4xl">{service.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm sm:text-base">
+                    {service.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </ScrollAnimation>

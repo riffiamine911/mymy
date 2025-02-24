@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     slug: "brand-identity-project",
     title: "Morocco Gaming Expo",
-    description: "A comprehensive brand identity system for a tech startup",
+    description: "MGE: A Government Digital Gaming Hub",
     image: "/projects/iMac Mockup Light.png",
     categories: ["Branding", "Visual Identity", "Typography"],
     clientName: "Ministère de Communication",

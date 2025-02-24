@@ -21,8 +21,8 @@ export function AnimatedText() {
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % phrases.length);
         setIsAnimating(false);
-      }, 1000);
-    }, 8000);
+      }, 200);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -32,7 +32,7 @@ export function AnimatedText() {
       <span className="text-white font-bold">Let&apos;s</span>
       <div className="relative">
         <span 
-          className={`inline-block transition-all duration-1000 text-white font-bold ${
+          className={`inline-block transition-all duration-300 text-white font-bold ${
             isAnimating 
               ? 'opacity-0'
               : 'opacity-100'

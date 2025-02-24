@@ -38,7 +38,6 @@ export default function Navbar() {
 
   const navLinks: NavLink[] = [
     { href: "#about", label: t.nav.about },
-    { href: "#expertise", label: t.nav.expertise },
     { href: "#projects", label: t.nav.projects },
     { href: "#faq", label: t.nav.faq },
     { href: "#footer", label: t.nav.contact },

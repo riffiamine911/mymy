@@ -2,7 +2,6 @@ export const translations = {
   en: {
     nav: {
       about: "About",
-      expertise: "Expertise",
       projects: "Projects",
       faq: "FAQ",
       contact: "Contact"
@@ -16,7 +15,7 @@ export const translations = {
         contact: "Get in Touch"
       },
       expertise: "Design Expertise",
-      skills: ["Brand Identity", "UI/UX Design", "Typography"]
+      skills: ["Brand Identity", "UI/UX Design", "Typography", "Media Design", "Print Design"]
     },
     about: {
       title: "About Me",
@@ -30,24 +29,30 @@ export const translations = {
         projects: "Projects Completed"
       }
     },
-    expertise: {
-      title: "Expertise",
-      heading: "Specialized Design Services",
-      services: [
+    services: {
+      title: "Services",
+      heading: "Specialized Design Solutions",
+      description: "Transforming ideas into compelling visual experiences across different mediums.",
+      items: [
         {
-          title: "Website Design",
-          description: "Creating intuitive and engaging web experiences that combine aesthetic excellence with user-centered functionality.",
+          title: "Website Prototypes",
+          description: "Creating intuitive and engaging website prototypes that combine aesthetic excellence with user-centered functionality.",
           icon: "🌐"
         },
         {
-          title: "Mobile Design",
-          description: "Crafting seamless mobile applications that deliver exceptional user experiences across all devices.",
+          title: "App Design",
+          description: "Designing beautiful and functional mobile applications that deliver exceptional user experiences.",
           icon: "📱"
         },
         {
-          title: "Brand Identity",
-          description: "Developing distinctive brand identities that tell compelling stories and create lasting connections.",
-          icon: "✨"
+          title: "Menu Design",
+          description: "Crafting elegant and appetizing menus for restaurants and cafes that enhance the dining experience.",
+          icon: "🍽️"
+        },
+        {
+          title: "Social Media Design",
+          description: "Creating eye-catching social media content with perfect color grading and typography that captures attention.",
+          icon: "📸"
         }
       ]
     }
@@ -55,7 +60,6 @@ export const translations = {
   de: {
     nav: {
       about: "Über mich",
-      expertise: "Expertise",
       projects: "Projekte",
       faq: "FAQ",
       contact: "Kontakt"
@@ -83,24 +87,30 @@ export const translations = {
         projects: "Abgeschlossene Projekte"
       }
     },
-    expertise: {
-      title: "Expertise",
-      heading: "Spezialisierte Design-Services",
-      services: [
+    services: {
+      title: "Dienstleistungen",
+      heading: "Spezialisierte Design-Lösungen",
+      description: "Verwandlung von Ideen in überzeugende visuelle Erlebnisse über verschiedene Medien hinweg.",
+      items: [
         {
-          title: "Website Design",
-          description: "Erschaffe intuitive und fesselnde Web-Erlebnisse, die ästhetische Exzellenz mit nutzerzentrierter Funktionalität verbinden.",
+          title: "Website-Prototypen",
+          description: "Entwicklung intuitiver und ansprechender Website-Prototypen, die ästhetische Exzellenz mit benutzerorientierter Funktionalität verbinden.",
           icon: "🌐"
         },
         {
-          title: "Mobile Design",
-          description: "Entwickle nahtlose mobile Anwendungen, die außergewöhnliche Nutzererlebnisse auf allen Geräten bieten.",
+          title: "App-Design",
+          description: "Gestaltung schöner und funktionaler mobiler Anwendungen, die außergewöhnliche Benutzererlebnisse bieten.",
           icon: "📱"
         },
         {
-          title: "Brand Identity",
-          description: "Entwickle unverwechselbare Markenidentitäten, die überzeugende Geschichten erzählen und dauerhafte Verbindungen schaffen.",
-          icon: "✨"
+          title: "Menü-Design",
+          description: "Gestaltung eleganter und appetitlicher Menüs für Restaurants und Cafés, die das Esserlebnis verbessern.",
+          icon: "🍽️"
+        },
+        {
+          title: "Social Media Design",
+          description: "Erstellung aufmerksamkeitsstarker Social-Media-Inhalte mit perfekter Farbabstimmung und Typografie.",
+          icon: "📸"
         }
       ]
     }
