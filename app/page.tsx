@@ -324,13 +324,13 @@ export default function Home() {
                 >
                   {/* Quote Icon */}
                   <div className="absolute -top-4 -left-2 text-4xl text-primary/20 select-none">
-                    "
+                  
                   </div>
                   
                   {/* Review Content */}
                   <div className="relative">
                     <p className="text-muted-foreground mb-6 italic">
-                      "{review.content}"
+                      {review.content}
                     </p>
                     
                     {/* Author Info */}
