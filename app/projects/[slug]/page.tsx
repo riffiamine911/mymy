@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { projects } from "@/app/data/projects";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Markdown from "react-markdown";
 
 export default function ProjectPage() {
@@ -47,12 +47,17 @@ export default function ProjectPage() {
 
           <div className="grid gap-8 mt-12">
             {project.gallery.map((image, index) => (
-              <div key={index} className="relative aspect-[16/9] rounded-xl overflow-hidden">
+              <div 
+                key={index} 
+                className="relative w-full overflow-hidden rounded-xl border border-border/50"
+              >
                 <Image
                   src={image}
                   alt={`${project.title} - Image ${index + 1}`}
-                  fill
-                  className="object-cover"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto object-contain"
+                  priority={index === 0}
                 />
               </div>
             ))}
@@ -73,6 +78,22 @@ export default function ProjectPage() {
                 <dt className="text-muted-foreground">Year</dt>
                 <dd className="font-medium mt-1">{project.year}</dd>
               </div>
+              {project.liveUrl && (
+                <div>
+                  <dt className="text-muted-foreground">Live Project</dt>
+                  <dd className="font-medium mt-1">
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary hover:underline"
+                    >
+                      Visit Website
+                      <ExternalLink size={14} />
+                    </a>
+                  </dd>
+                </div>
+              )}
             </dl>
           </div>
 

@@ -15,7 +15,7 @@ export const translations = {
         contact: "Get in Touch"
       },
       expertise: "Design Expertise",
-      skills: ["Brand Identity", "UI/UX Design", "Typography", "Media Design", "Print Design"]
+      skills: ["Brand Identity", "UI/UX Design", "Typography"]
     },
     about: {
       title: "About Me",
