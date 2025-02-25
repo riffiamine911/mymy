@@ -55,6 +55,11 @@ export const translations = {
           icon: "📸"
         }
       ]
+    },
+    reviews: {
+      title: "Testimonials",
+      heading: "Client Reviews",
+      description: "Hear what clients say about working together and the impact of our design collaborations."
     }
   },
   de: {
@@ -113,6 +118,11 @@ export const translations = {
           icon: "📸"
         }
       ]
+    },
+    reviews: {
+      title: "Referenzen",
+      heading: "Kundenbewertungen",
+      description: "Erfahren Sie, was Kunden über die Zusammenarbeit und die Wirkung unserer Design-Kollaborationen sagen."
     }
   }
 }; 

@@ -9,6 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { AnimatedText } from "@/app/components/AnimatedText";
 import { FAQSection } from "@/app/components/FAQSection";
+import { reviews } from "@/app/data/reviews";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -283,6 +284,80 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollAnimation>
+
+      {/* Testimonials Section */}
+      <ScrollAnimation>
+        <section className="py-24 relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_20%_20%,var(--chart-1)/0.15,transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_80%_60%,var(--chart-4)/0.15,transparent)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(60deg,var(--chart-2)/0.05_1px,transparent_1px)] bg-[size:16px_16px]" />
+          </div>
+
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="flex items-center gap-2 text-sm mb-8">
+              <div className="h-[1px] w-12 bg-primary/50"></div>
+              <p className="text-primary font-medium tracking-wider uppercase">Testimonials</p>
+            </div>
+
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                Client Reviews
+              </h2>
+              <p className="text-muted-foreground">
+                Hear what clients say about working together and the impact of our design collaborations.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {reviews.map((review, index) => (
+                <div
+                  key={index}
+                  className="relative p-6 sm:p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-colors group"
+                >
+                  {/* Quote Icon */}
+                  <div className="absolute -top-4 -left-2 text-4xl text-primary/20 select-none">
+                    "
+                  </div>
+                  
+                  {/* Review Content */}
+                  <div className="relative">
+                    <p className="text-muted-foreground mb-6 italic">
+                      "{review.content}"
+                    </p>
+                    
+                    {/* Author Info */}
+                    <div className="flex items-center gap-4">
+                      <div 
+                        className="relative w-12 h-12 flex-shrink-0"
+                      >
+                        <Image
+                          src={review.image}
+                          alt={review.author}
+                          width={48}
+                          height={48}
+                          className="rounded-full object-cover border-2 border-border/50"
+                          style={{ width: '48px', height: '48px' }}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold group-hover:text-primary transition-colors">
+                          {review.author}
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {review.role} at {review.company}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
