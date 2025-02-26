@@ -192,7 +192,7 @@ export default function Home() {
 
       {/* Services Section */}
       <ScrollAnimation>
-        <section className="py-24 relative overflow-hidden">
+        <section id="services" className="py-24 relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
@@ -292,7 +292,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <ScrollAnimation>
-        <section className="py-24 relative overflow-hidden">
+        <section id="testimonials" className="py-24 relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />

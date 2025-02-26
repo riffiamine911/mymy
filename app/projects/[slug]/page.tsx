@@ -12,7 +12,18 @@ export default function ProjectPage() {
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
-    return <div>Project not found</div>;
+    return (
+      <div className="max-w-5xl mx-auto px-4 py-24 text-center">
+        <h1 className="text-2xl font-bold mb-4">Project not found</h1>
+        <Link 
+          href="/#projects"
+          className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+        >
+          <ArrowLeft size={16} />
+          Back to Projects
+        </Link>
+      </div>
+    );
   }
 
   return (
@@ -46,7 +57,7 @@ export default function ProjectPage() {
           </div>
 
           <div className="grid gap-8 mt-12">
-            {project.gallery.map((image, index) => (
+            {project.gallery?.length > 0 && project.gallery.map((image, index) => (
               <div 
                 key={index} 
                 className="relative w-full overflow-hidden rounded-xl border border-border/50"
@@ -97,33 +108,37 @@ export default function ProjectPage() {
             </dl>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.services.map((service) => (
-                <span 
-                  key={service}
-                  className="px-3 py-1 rounded-full text-sm bg-secondary/30 border border-border/50"
-                >
-                  {service}
-                </span>
-              ))}
+          {project.services?.length > 0 && (
+            <div>
+              <h3 className="font-semibold mb-4">Services</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.services.map((service) => (
+                  <span 
+                    key={service}
+                    className="px-3 py-1 rounded-full text-sm bg-secondary/30 border border-border/50"
+                  >
+                    {service}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          <div>
-            <h3 className="font-semibold mb-4">Categories</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.categories.map((category) => (
-                <span 
-                  key={category}
-                  className="px-3 py-1 rounded-full text-sm bg-secondary/30 border border-border/50"
-                >
-                  {category}
-                </span>
-              ))}
+          {project.categories?.length > 0 && (
+            <div>
+              <h3 className="font-semibold mb-4">Categories</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.categories.map((category) => (
+                  <span 
+                    key={category}
+                    className="px-3 py-1 rounded-full text-sm bg-secondary/30 border border-border/50"
+                  >
+                    {category}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </article>

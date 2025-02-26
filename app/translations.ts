@@ -2,30 +2,30 @@ export const translations = {
   en: {
     nav: {
       about: "About",
+      services: "Services",
       projects: "Projects",
+      testimonials: "Testimonials",
       faq: "FAQ",
       contact: "Contact"
     },
     hero: {
-      role: "Creative Designer",
-      subtitle: "Graphic Designer",
-      description: "Creating bold, memorable designs that tell stories and build brands. Specializing in brand identity, digital design, and creative direction.",
+      title: "Creative Designer & Developer",
+      subtitle: "Crafting Digital Experiences",
+      description: "Transforming ideas into engaging digital experiences through thoughtful design and development.",
       cta: {
         portfolio: "View Portfolio",
         contact: "Get in Touch"
-      },
-      expertise: "Design Expertise",
-      skills: ["Brand Identity", "UI/UX Design", "Typography"]
+      }
     },
     about: {
-      title: "About Me",
-      heading: "Crafting Digital Experiences with Purpose",
+      title: "About",
+      heading: "Creative Designer with a Passion for Digital Excellence",
       description: [
-        "With over 3 years of experience in design, I've dedicated my career to creating meaningful visual experiences that connect brands with their audiences. My approach combines strategic thinking with creative execution, ensuring every project delivers both aesthetic excellence and measurable results.",
-        "I specialize in brand identity systems, user interface design, and creative direction, working closely with clients to transform their visions into compelling visual narratives."
+        "With over 3 years of experience in digital design and development, I specialize in creating engaging user experiences that drive results.",
+        "My approach combines aesthetic excellence with functional design principles, ensuring every project delivers both beauty and purpose."
       ],
       stats: {
-        years: "Years of Experience",
+        years: "Years Experience",
         projects: "Projects Completed"
       }
     },
@@ -56,36 +56,55 @@ export const translations = {
         }
       ]
     },
+    projects: {
+      title: "Featured Projects",
+      heading: "Selected Works",
+      viewAll: "All Projects",
+      backToHome: "Back to Home",
+      allProjects: "All Projects",
+      projectDetails: "Project Details",
+      client: "Client",
+      year: "Year",
+      liveProject: "Live Project",
+      visitWebsite: "Visit Website",
+      services: "Services",
+      categories: "Categories"
+    },
     reviews: {
       title: "Testimonials",
       heading: "Client Reviews",
       description: "Hear what clients say about working together and the impact of our design collaborations."
+    },
+    faq: {
+      title: "FAQ",
+      heading: "Frequently Asked Questions",
+      description: "Find answers to common questions about my design process, timeline, and how we can work together."
     }
   },
   de: {
     nav: {
       about: "Über mich",
+      services: "Dienstleistungen",
       projects: "Projekte",
+      testimonials: "Referenzen",
       faq: "FAQ",
       contact: "Kontakt"
     },
     hero: {
-      role: "Kreativdesigner",
-      subtitle: "Grafikdesigner",
-      description: "Erschaffe mutige, einprägsame Designs, die Geschichten erzählen und Marken aufbauen. Spezialisiert auf Markenidentität, digitales Design und kreative Leitung.",
+      title: "Kreativer Designer & Entwickler",
+      subtitle: "Digitale Erlebnisse gestalten",
+      description: "Ideen durch durchdachtes Design und Entwicklung in fesselnde digitale Erlebnisse verwandeln.",
       cta: {
         portfolio: "Portfolio ansehen",
         contact: "Kontakt aufnehmen"
-      },
-      expertise: "Design-Expertise",
-      skills: ["Markenidentität", "UI/UX Design", "Typografie"]
+      }
     },
     about: {
       title: "Über mich",
-      heading: "Digitale Erlebnisse mit Zweck gestalten",
+      heading: "Kreativer Designer mit Leidenschaft für digitale Exzellenz",
       description: [
-        "Mit über 3 Jahren Erfahrung im Design habe ich meine Karriere der Schaffung bedeutungsvoller visueller Erlebnisse gewidmet, die Marken mit ihrem Publikum verbinden. Mein Ansatz kombiniert strategisches Denken mit kreativer Umsetzung und stellt sicher, dass jedes Projekt sowohl ästhetische Exzellenz als auch messbare Ergebnisse liefert.",
-        "Ich bin spezialisiert auf Markenidentitätssysteme, User Interface Design und kreative Leitung und arbeite eng mit Kunden zusammen, um ihre Visionen in überzeugende visuelle Geschichten zu verwandeln."
+        "Mit über 3 Jahren Erfahrung in digitalem Design und Entwicklung spezialisiere ich mich auf die Gestaltung ansprechender Nutzererlebnisse, die Ergebnisse liefern.",
+        "Mein Ansatz verbindet ästhetische Exzellenz mit funktionalen Designprinzipien und stellt sicher, dass jedes Projekt sowohl Schönheit als auch Zweck bietet."
       ],
       stats: {
         years: "Jahre Erfahrung",
@@ -94,35 +113,54 @@ export const translations = {
     },
     services: {
       title: "Dienstleistungen",
-      heading: "Spezialisierte Design-Lösungen",
-      description: "Verwandlung von Ideen in überzeugende visuelle Erlebnisse über verschiedene Medien hinweg.",
+      heading: "Spezialisierte Designlösungen",
+      description: "Ideen in überzeugende visuelle Erlebnisse über verschiedene Medien hinweg verwandeln.",
       items: [
         {
           title: "Website-Prototypen",
-          description: "Entwicklung intuitiver und ansprechender Website-Prototypen, die ästhetische Exzellenz mit benutzerorientierter Funktionalität verbinden.",
+          description: "Intuitive und ansprechende Website-Prototypen erstellen, die ästhetische Exzellenz mit benutzerorientierter Funktionalität verbinden.",
           icon: "🌐"
         },
         {
           title: "App-Design",
-          description: "Gestaltung schöner und funktionaler mobiler Anwendungen, die außergewöhnliche Benutzererlebnisse bieten.",
+          description: "Schöne und funktionale mobile Anwendungen gestalten, die außergewöhnliche Nutzererlebnisse bieten.",
           icon: "📱"
         },
         {
           title: "Menü-Design",
-          description: "Gestaltung eleganter und appetitlicher Menüs für Restaurants und Cafés, die das Esserlebnis verbessern.",
+          description: "Elegante und appetitliche Menüs für Restaurants und Cafés gestalten, die das Esserlebnis verbessern.",
           icon: "🍽️"
         },
         {
           title: "Social Media Design",
-          description: "Erstellung aufmerksamkeitsstarker Social-Media-Inhalte mit perfekter Farbabstimmung und Typografie.",
+          description: "Aufmerksamkeitsstarke Social-Media-Inhalte mit perfekter Farbabstimmung und Typografie erstellen.",
           icon: "📸"
         }
       ]
+    },
+    projects: {
+      title: "Ausgewählte Projekte",
+      heading: "Ausgewählte Arbeiten",
+      viewAll: "Alle Projekte",
+      backToHome: "Zurück zur Startseite",
+      allProjects: "Alle Projekte",
+      projectDetails: "Projektdetails",
+      client: "Kunde",
+      year: "Jahr",
+      liveProject: "Live-Projekt",
+      visitWebsite: "Website besuchen",
+      services: "Dienstleistungen",
+      categories: "Kategorien"
     },
     reviews: {
       title: "Referenzen",
       heading: "Kundenbewertungen",
       description: "Erfahren Sie, was Kunden über die Zusammenarbeit und die Wirkung unserer Design-Kollaborationen sagen."
+    },
+    faq: {
+      title: "FAQ",
+      heading: "Häufig gestellte Fragen",
+      description: "Finden Sie Antworten auf häufige Fragen zu meinem Designprozess, Zeitplan und wie wir zusammenarbeiten können."
     }
   }
 }; 

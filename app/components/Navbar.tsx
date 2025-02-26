@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Globe } from "lucide-react";
+import { Globe, Menu, X } from "lucide-react";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 
 interface NavLink {
@@ -24,13 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle mobile menu
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    document.body.style.overflow = !isOpen ? "hidden" : "unset";
-  };
-
-  // Handle link click
   const handleLinkClick = () => {
     setIsOpen(false);
     document.body.style.overflow = "unset";
@@ -38,7 +31,9 @@ export default function Navbar() {
 
   const navLinks: NavLink[] = [
     { href: "#about", label: t.nav.about },
+    { href: "#services", label: t.nav.services },
     { href: "#projects", label: t.nav.projects },
+    { href: "#testimonials", label: t.nav.testimonials },
     { href: "#faq", label: t.nav.faq },
     { href: "#footer", label: t.nav.contact },
   ];
@@ -49,7 +44,8 @@ export default function Navbar() {
         hasScrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Logo */}
         <Link 
           href="/" 
           className="relative z-50 transition-transform hover:scale-105"
@@ -61,73 +57,85 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors relative group ${
-                link.label === t.nav.faq 
-                  ? "text-black dark:text-white hover:text-primary" 
-                  : "text-foreground/80 hover:text-primary"
-              }`}
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full" />
-            </Link>
-          ))}
-          
-          <button
-            onClick={() => setLanguage(language === "en" ? "de" : "en")}
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-          >
-            <Globe className="w-4 h-4" />
-            {language === "en" ? "DE" : "EN"}
-          </button>
+        <div className="hidden md:flex items-center space-x-1">
+          <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-full border border-border/50 p-1">
+            {navLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
+                  ${link.href === "#footer" ? "bg-primary text-white hover:bg-primary/90" : "hover:bg-white/10"}
+                  group
+                `}
+              >
+                {link.label}
+                <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-primary/0 via-primary/70 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
+            ))}
+
+            {/* Language Toggle */}
+            <div className="relative ml-2 group">
+              <button
+                onClick={() => setLanguage(language === "en" ? "de" : "en")}
+                className="p-2 rounded-full hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+                aria-label="Toggle Language"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="text-sm font-medium">{language === "en" ? "EN" : "DE"}</span>
+              </button>
+              <div className="absolute right-0 mt-2 w-48 py-2 bg-card/80 backdrop-blur-sm rounded-xl border border-border/50 shadow-lg opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors flex items-center gap-2 ${
+                    language === "en" ? "text-primary" : ""
+                  }`}
+                >
+                  🇬🇧 English
+                  {language === "en" && <span className="ml-auto">✓</span>}
+                </button>
+                <button
+                  onClick={() => setLanguage("de")}
+                  className={`w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors flex items-center gap-2 ${
+                    language === "de" ? "text-primary" : ""
+                  }`}
+                >
+                  🇩🇪 Deutsch
+                  {language === "de" && <span className="ml-auto">✓</span>}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden relative z-50 p-2 rounded-lg hover:bg-secondary/20 transition-colors"
-          onClick={toggleMenu}
-          aria-expanded={isOpen}
-          aria-label="Toggle menu"
+        <button
+          onClick={() => {
+            setIsOpen(!isOpen);
+            document.body.style.overflow = !isOpen ? "hidden" : "unset";
+          }}
+          className="md:hidden relative z-50 p-2 -mr-2"
+          aria-label="Toggle Menu"
         >
-          <div className="w-5 h-5 flex flex-col justify-between transform transition-all duration-300">
-            <span className={`bg-foreground h-0.5 w-full transform transition-all duration-300 ${
-              isOpen ? "rotate-45 translate-y-2" : ""
-            }`} />
-            <span className={`bg-foreground h-0.5 w-full transform transition-all duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`} />
-            <span className={`bg-foreground h-0.5 w-full transform transition-all duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-2" : ""
-            }`} />
-          </div>
+          {isOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
 
         {/* Mobile Menu */}
-        <div 
-          className={`fixed inset-0 bg-background z-40 transition-transform duration-300 md:hidden ${
+        <div
+          className={`md:hidden fixed inset-0 bg-background/80 backdrop-blur-lg transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {/* Add an overlay background */}
-          <div className="absolute inset-0 bg-white dark:bg-black opacity-98" />
-          
-          {/* Menu content */}
-          <div className="relative h-full flex flex-col">
-            {/* Links container */}
-            <div className="flex-1 flex flex-col items-center justify-center space-y-8">
-              {navLinks.map((link) => (
+          <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
+            <div className="flex flex-col items-center space-y-6">
+              {navLinks.map((link, index) => (
                 <Link
-                  key={link.href}
+                  key={index}
                   href={link.href}
-                  className={`text-2xl font-medium transition-colors ${
-                    link.label === t.nav.faq 
-                      ? "text-black dark:text-white hover:text-primary" 
-                      : "text-foreground/80 hover:text-primary"
-                  }`}
+                  className="text-2xl font-medium hover:text-primary transition-colors"
                   onClick={handleLinkClick}
                 >
                   {link.label}
@@ -136,17 +144,37 @@ export default function Navbar() {
             </div>
 
             {/* Language button at bottom */}
-            <div className="pb-12 flex justify-center">
-              <button
-                onClick={() => {
-                  setLanguage(language === "en" ? "de" : "en");
-                  handleLinkClick();
-                }}
-                className="text-base font-medium text-foreground/60 hover:text-primary transition-colors inline-flex items-center gap-2"
-              >
-                <Globe className="w-4 h-4" />
-                {language === "en" ? "Deutsch" : "English"}
-              </button>
+            <div className="mt-12">
+              <div className="relative ml-2 group">
+                <button
+                  onClick={() => setLanguage(language === "en" ? "de" : "en")}
+                  className="p-2 rounded-full hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+                  aria-label="Toggle Language"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="text-sm font-medium">{language === "en" ? "EN" : "DE"}</span>
+                </button>
+                <div className="absolute right-0 mt-2 w-48 py-2 bg-card/80 backdrop-blur-sm rounded-xl border border-border/50 shadow-lg opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                  <button
+                    onClick={() => setLanguage("en")}
+                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors flex items-center gap-2 ${
+                      language === "en" ? "text-primary" : ""
+                    }`}
+                  >
+                    🇬🇧 English
+                    {language === "en" && <span className="ml-auto">✓</span>}
+                  </button>
+                  <button
+                    onClick={() => setLanguage("de")}
+                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors flex items-center gap-2 ${
+                      language === "de" ? "text-primary" : ""
+                    }`}
+                  >
+                    🇩🇪 Deutsch
+                    {language === "de" && <span className="ml-auto">✓</span>}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
