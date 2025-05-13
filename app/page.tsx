@@ -122,7 +122,7 @@ export default function Home() {
                   {/* Add your image here */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                   <Image 
-                    src="/projects/portflio.JPG" 
+                    src="projects/me.JPG"
                     alt="Amine Ibnlfassi" 
                     fill
                     className="object-cover"
