@@ -15,7 +15,8 @@ export const translations = {
       cta: {
         portfolio: "View Portfolio",
         contact: "Get in Touch"
-      }
+      },
+      skills: ["Figma", "Photoshop", "Lightroom CC", "VS Code", "Cursor"]
     },
     about: {
       title: "About",
@@ -73,12 +74,36 @@ export const translations = {
     reviews: {
       title: "Testimonials",
       heading: "Client Reviews",
-      description: "Hear what clients say about working together and the impact of our design collaborations."
+      description: "Hear what clients say about working together and the impact of our design collaborations.",
+      viewAll: "View All Reviews",
+      backToHome: "Back to Reviews"
     },
     faq: {
       title: "FAQ",
       heading: "Frequently Asked Questions",
-      description: "Find answers to common questions about my design process, timeline, and how we can work together."
+      description: "Find answers to common questions about my design process, timeline, and how we can work together.",
+      questions: [
+        {
+          question: "What industries do you work with?",
+          answer: "I work with a wide range of industries, including startups, small businesses, e-commerce brands, tech companies, and Government Websites."
+        },
+        {
+          question: "What is your design process?",
+          answer: "My design process includes discovery, research & strategy, concept development, refinement, and final delivery. I ensure clear communication and collaboration throughout the project."
+        },
+        {
+          question: "How long does a typical project take?",
+          answer: "Project timelines vary depending on scope and complexity. A typical website design project takes 4-6 weeks, while branding projects might take 6-8 weeks. I'll provide a detailed timeline during our initial consultation."
+        },
+        {
+          question: "Do you offer ongoing support?",
+          answer: "Yes, I provide ongoing support and maintenance services to ensure your digital presence remains up-to-date and effective. We can discuss specific support packages based on your needs."
+        },
+        {
+          question: "What is your pricing structure?",
+          answer: "Each project is unique, and pricing reflects the scope, complexity, and value delivered. I provide detailed proposals with transparent pricing after understanding your specific requirements."
+        }
+      ]
     }
   },
   de: {

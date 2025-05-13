@@ -5,113 +5,95 @@ import Link from "next/link";
 import { projects } from "@/app/data/projects";
 import { AnimateIn } from "@/app/components/AnimateIn";
 import { ScrollAnimation } from "@/app/components/ScrollAnimation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { AnimatedText } from "@/app/components/AnimatedText";
 import { FAQSection } from "@/app/components/FAQSection";
 import { reviews } from "@/app/data/reviews";
+import { useState } from "react";
 
 export default function Home() {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrevious = () => {
+    setCurrentIndex(prev => prev === 0 ? projects.length - 2 : prev - 2);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev + 2) >= projects.length ? 0 : prev + 2);
+  };
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="min-h-[100svh] relative flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
-        {/* Creative Background Pattern */}
-        <div className="absolute inset-0 -z-10">
-          {/* Main gradient layers */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_1000px_at_50%_-20%,#6a8ec2/0.15,transparent)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_80%_60%,#6a8ec2/0.2,transparent)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_20%_40%,#6a8ec2/0.15,transparent)]" />
-          
-          {/* Animated gradient orbs */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6a8ec2]/20 rounded-full blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#6a8ec2]/20 rounded-full blur-3xl animate-pulse-slow delay-700" />
-          
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,#6a8ec2/0.03_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <section className="min-h-[100svh] relative flex items-center justify-center">
+        {/* Available for Projects Badge */}
+        <div className="absolute top-8 right-8">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.02] border border-neutral-200/10">
+            <div className="w-2 h-2 rounded-full bg-green-500"></div>
+            <span className="text-sm">Available for Projects</span>
+          </div>
         </div>
-        <div className="max-w-5xl mx-auto px-4 py-16 sm:py-24 md:py-32 relative">
-         
 
-          {/* Centered Content */}
-          <div className="text-center space-y-6 sm:space-y-10">
-            <AnimateIn delay={100}>
-              <div className="flex justify-end mb-4">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/30 backdrop-blur-sm border border-primary/20 text-primary text-sm font-medium">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  Available for Projects
-                </div>
-              </div>
-            </AnimateIn>
+        <div className="max-w-5xl mx-auto px-4 py-16 sm:py-24 md:py-32 relative text-center">
+          {/* Creative Designer Text */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <div className="h-[1px] w-12 bg-neutral-300/20"></div>
+            <p className="text-neutral-400 uppercase tracking-wider text-sm">Creative Designer</p>
+            <div className="h-[1px] w-12 bg-neutral-300/20"></div>
+          </div>
 
-            <AnimateIn delay={200}>
-              <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                <div className="h-[1px] w-8 sm:w-16 bg-primary/50"></div>
-                <p className="text-primary font-medium tracking-wider uppercase">{t.hero.role}</p>
-                <div className="h-[1px] w-8 sm:w-16 bg-primary/50"></div>
-              </div>
-            </AnimateIn>
+          {/* Name and Title */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6">
+            Amine Ibnlfassi
+          </h1>
+          <p className="text-xl sm:text-2xl text-neutral-400 mb-8">
+            Graphic Designer
+          </p>
 
-            <AnimateIn delay={400}>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight">
-                Amine Ibnlfassi
-                <span className="block text-muted-foreground/60 mt-2 sm:mt-3 text-lg sm:text-xl md:text-2xl font-normal">
-                  {t.hero.subtitle}
+          {/* Description */}
+          <p className="text-lg sm:text-xl text-neutral-500 max-w-3xl mx-auto mb-12">
+            Creating bold, memorable designs that tell stories and build brands. Specializing in brand identity, digital design, and creative direction.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            <Link 
+              href="/projects"
+              className="px-8 py-3 bg-black text-white rounded-full font-medium inline-flex items-center gap-2 group hover:bg-neutral-900 transition-colors"
+            >
+              View Portfolio
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 16 16" 
+                fill="none" 
+                className="group-hover:translate-x-0.5 transition-transform"
+              >
+                <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+            <Link 
+              href="#contact"
+              className="px-8 py-3 rounded-full font-medium border border-neutral-200/10 hover:bg-white/[0.02] transition-colors"
+            >
+              Get in Touch
+            </Link>
+          </div>
+
+          {/* Design Expertise */}
+          <div className="text-center">
+            <p className="text-sm text-neutral-400 mb-4">Design Expertise</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {['Brand Identity', 'UI/UX Design', 'Typography'].map((skill) => (
+                <span 
+                  key={skill}
+                  className="px-6 py-2 rounded-full bg-white/[0.02] border border-neutral-200/10"
+                >
+                  {skill}
                 </span>
-              </h1>
-            </AnimateIn>
-
-            <AnimateIn delay={600}>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-                {t.hero.description}
-              </p>
-            </AnimateIn>
-
-            <AnimateIn delay={800}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-                <Link 
-                  href="#work"
-                  className="w-full sm:w-auto group relative inline-flex items-center justify-center"
-                >
-                  <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all duration-300"></div>
-                  <span className="relative bg-primary w-full sm:w-auto px-6 py-3 rounded-lg text-primary-foreground font-medium inline-flex items-center justify-center gap-2 group-hover:translate-x-1 transition-transform">
-                    {t.hero.cta.portfolio}
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover:translate-x-1 transition-transform">
-                      <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </Link>
-                <Link 
-                  href="#contact"
-                  className="w-full sm:w-auto px-6 py-3 rounded-lg border border-border hover:bg-secondary/20 text-base font-medium transition-colors text-center"
-                >
-                  {t.hero.cta.contact}
-                </Link>
-              </div>
-            </AnimateIn>
-
-            <AnimateIn delay={1000}>
-              <div className="max-w-lg mx-auto px-4">
-                <p className="text-xs sm:text-sm text-muted-foreground/60 mb-3 sm:mb-4 font-medium">{t.hero.expertise}</p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-                  {t.hero.skills.map((skill) => (
-                    <div key={skill} 
-                      className="px-3 sm:px-4 py-2 rounded-lg bg-secondary/10 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-colors"
-                    >
-                      <p className="text-xs sm:text-sm font-medium text-center">{skill}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimateIn>
-
-           
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -140,7 +122,7 @@ export default function Home() {
                   {/* Add your image here */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                   <Image 
-                    src="/projects/messu.png" 
+                    src="/projects/portflio.JPG" 
                     alt="Amine Ibnlfassi" 
                     fill
                     className="object-cover"
@@ -175,7 +157,7 @@ export default function Home() {
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-2 pt-4">
-                  {['Figma', 'Photoshop', 'Lightroom CC', 'VS Code', 'Cursor'].map((skill) => (
+                  {['Figma', 'Photoshop', 'Lightroom CC', 'VS Code', 'Cursor'].map((skill: string) => (
                     <span 
                       key={skill}
                       className="px-3 py-1 rounded-full text-sm bg-secondary/30 border border-border/50"
@@ -240,51 +222,77 @@ export default function Home() {
       <ScrollAnimation>
         <section id="projects" className="py-24 bg-secondary/20">
           <div className="max-w-5xl mx-auto px-4">
-            <div className="flex items-center gap-2 text-sm mb-8">
-              <div className="h-[1px] w-12 bg-primary/50"></div>
-              <p className="text-primary font-medium tracking-wider uppercase">Featured Projects</p>
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-2 text-sm">
+                <div className="h-[1px] w-12 bg-primary/50"></div>
+                <p className="text-primary font-medium tracking-wider uppercase">{t.projects.title}</p>
+              </div>
+              <Link 
+                href="/projects"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {t.projects.viewAll} →
+              </Link>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-              Selected Works
+              {t.projects.heading}
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {projects.map((project) => (
-                <Link 
-                  href={`/projects/${project.slug}`} 
-                  key={project.slug}
-                  className="group relative overflow-hidden rounded-2xl bg-card border border-border/50"
-                >
-                  <div className="aspect-[16/10] relative">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                  </div>
-                  <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-4">
-                      {project.categories.map((category) => (
-                        <span 
-                          key={category}
-                          className="px-2 py-1 text-xs rounded-full bg-secondary/30 border border-border/50"
-                        >
-                          {category}
-                        </span>
-                      ))}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-6 md:gap-8">
+                {projects.slice(currentIndex, currentIndex + 2).map((project) => (
+                  <Link 
+                    href={`/projects/${project.slug}`} 
+                    key={project.slug}
+                    className="group relative overflow-hidden rounded-2xl bg-card border border-border/50"
+                  >
+                    <div className="aspect-[16/10] relative">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                     </div>
-                  </div>
-                </Link>
-              ))}
+                    <div className="p-6 space-y-2">
+                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground line-clamp-2">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-4">
+                        {project.categories.map((category) => (
+                          <span 
+                            key={category}
+                            className="px-2 py-1 text-xs rounded-full bg-secondary/30 border border-border/50"
+                          >
+                            {category}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Navigation Arrows */}
+              <button 
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 p-2 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
+                onClick={handlePrevious}
+                aria-label="Previous projects"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button 
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 p-2 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
+                onClick={handleNext}
+                aria-label="Next projects"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </section>
